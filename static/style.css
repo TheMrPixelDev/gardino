@@ -1,0 +1,119 @@
+html {
+
+    margin: 0px;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    background-color: rgb(49, 49, 49);
+    background-size: cover;
+    color: white;
+}
+
+body {
+
+    margin-left: 20px;
+
+}
+
+form {
+
+    display: inline-flex;
+
+}
+
+input {
+
+    border-radius: 10px;
+    transition: 200ms ease;
+    padding: 10px;
+    margin-right: 5px;
+    box-shadow: grey;
+    border-width: 5px;
+
+}
+
+input:hover {
+
+    border-radius: 5px;
+
+}
+
+.off-button {
+
+    background-color: lightcoral;
+    border-color: red ;
+    color: white;
+    font-weight: bolder;
+
+}
+
+.on-button {
+
+    background-color: lightgreen;
+    border-color: lime;
+    color: white;
+    font-weight: bolder;
+
+}
+
+.flexbox-item {
+
+    background-color: darkcyan;
+    border-radius: 20px;
+    padding: 25px;
+    width: 250px;
+    margin-bottom: 20px;
+
+}
+
+table {
+
+    margin-bottom: 20px;
+
+}
+
+.download-btn {
+
+    padding: 10px;
+    padding-right: 40px;
+    color: white;
+    border-radius: 10px;
+    background-color: royalblue;
+    border: solid;
+    border-width: 3px;
+    background-image: url(../static/download-icon.svg);
+    background-repeat: no-repeat;
+    background-position: right;
+    background-size: contain;
+
+}
+.log-box {
+
+    background-color: grey;
+    display:inline-block;
+    border-radius: 20px;
+    padding: 25px;
+    padding-top: 10px;
+    width: auto;
+
+}
+
+.extended th {
+
+    border-bottom: 1pt solid white;
+
+}
+
+.extended th {
+
+    padding-left: 10px;
+    padding-right: 10px;
+    
+}
+
+
+
+.extended td {
+
+    padding-left: 10px;
+    padding-right: 10px;
+
+}

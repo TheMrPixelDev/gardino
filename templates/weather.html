@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="../static/style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="../static/favicon.svg">
+    <title>Daten</title>
+</head>
+<body>
+    <header><h1>Wetter-Daten</h1></header>
+    <table>
+        <tbody>
+            <tr>
+                <td><h3>Temperatur : </h3></td><td>{{ daten[2] }}</td>
+            </tr>
+            <tr>
+                <td><h3>Feuchtigkeit : </h3></td><td>{{ daten[3] }}</td>
+            </tr>
+            <tr>
+                <td><h3>Uhrzeit/Datum : </h3></td><td>{{ daten[1] }}</td><td>{{ daten[0] }}</td>
+            </tr>
+        </tbody>
+    </table>
+    <br>
+    <div class="log-box extended">
+    <table>
+        <tbody>
+        <tr>
+            <th>Datum</th><th>Uhrzeit</th><th>Temperatur</th><th>Feuchtigkeit</th>
+        </tr>
+                {% for satz in datenliste %}
+                <tr>
+                    <td>{{ satz[0] }}</td><td>{{ satz[1] }}</td><td>{{ satz[2] }}</td><td>{{ satz[3] }}</td>
+                </tr>
+                {% endfor %}
+            </tr>
+        </tbody>
+    </table>
+        </div>
+</body>
+</html>
