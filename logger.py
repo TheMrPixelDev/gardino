@@ -23,6 +23,13 @@ class log:
             f.close()
         return liste
 
+    def write_array(self, array):
+        with open(self.file, "w", newline='') as f:
+            csv_writer = writer(f, delimiter=";")
+            csv_writer.writerows(array)
+            f.close()
+
+
     def read_limited(self, count):
         logs = self.read_everything()
         logs.sort(reverse=True)
