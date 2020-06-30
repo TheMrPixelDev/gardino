@@ -5,6 +5,7 @@
     <link rel="stylesheet" href="../static/style.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" href="../static/favicon.svg">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <title>Daten</title>
 </head>
 <body>
@@ -12,26 +13,31 @@
     <table>
         <tbody>
             <tr>
-                <td><h3>Temperatur : </h3></td><td>{{ daten[2] }}</td>
+                <td><h3>Temperatur : </h3></td><td>{{ last_weather_log[0] }}</td>
             </tr>
             <tr>
-                <td><h3>Feuchtigkeit : </h3></td><td>{{ daten[3] }}</td>
+                <td><h3>Feuchtigkeit : </h3></td><td>{{ last_weather_log[1] }}</td>
             </tr>
             <tr>
-                <td><h3>Uhrzeit/Datum : </h3></td><td>{{ daten[1] }}</td><td>{{ daten[0] }}</td>
+                <td><h3>Uhrzeit/Datum : </h3></td><td>{{ last_weather_log[2] }}</td><td>{{ last_weather_log[3] }}</td>
+            </tr>
+            <tr>
+                <td><a class="action-btn" href="{{ url_for('index') }}"><i class="fa fa-caret-square-o-left"></i> Zurück</a></td>
             </tr>
         </tbody>
     </table>
     <br>
     <div class="log-box extended">
+        <a class="action-btn" href="{{ url_for('download_weather_file') }}" download="weather.csv"><img>Download <i class="fa fa-cloud-download"></i></a>
+        <br><br>
     <table>
         <tbody>
         <tr>
             <th>Datum</th><th>Uhrzeit</th><th>Temperatur</th><th>Feuchtigkeit</th>
         </tr>
-                {% for satz in datenliste %}
+                {% for entry in weather_data_array %}
                 <tr>
-                    <td>{{ satz[0] }}</td><td>{{ satz[1] }}</td><td>{{ satz[2] }}</td><td>{{ satz[3] }}</td>
+                    <td>{{ entry[0] }}</td><td>{{ entry[1] }}</td><td>{{ entry[2] }}</td><td>{{ entry[3] }}</td>
                 </tr>
                 {% endfor %}
             </tr>
