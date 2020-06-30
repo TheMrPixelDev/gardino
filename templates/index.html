@@ -5,13 +5,33 @@
     <title>Gardino</title>
     <link rel="stylesheet" href="../static/style.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="icon" href="../static/favicon.svg">
 </head>
 <body>
     <header><h1>Gardino Dashboard</h1></header>
     <section>
+        <table class="log-box">
+        <tbody>
+            <tr>
+                <td><h3>Temperatur : </h3></td><td>{{ current_weather_data[0] }}</td>
+            </tr>
+            <tr>
+                <td><h3>Feuchtigkeit : </h3></td><td>{{ current_weather_data[1] }}</td>
+            </tr>
+            <tr>
+                <td><h3>Uhrzeit/Datum : </h3></td><td>{{ current_weather_data[2] }}</td><td>{{ current_weather_data[3] }}</td>
+            </tr>
+            <tr>
+                <td><a class="action-btn" href="{{ url_for('weather_dashboard') }}">Mehr hierzu<i class="fa fa-caret-square-o-right"></i></a></td>
+            </tr>
+        </tbody>
+    </table>
+    </section>
+    <section>
         <div class="flexbox">
             <div class="flexbox-item">
+                <div class="button-container">
                 <h2>Bewässerungsanlage</h2>
                     <form action="{{ url_for('disable_device', device_id=5) }}" method="POST">
                         <input class="off-button" type="submit" value="TURN OFF">
@@ -19,15 +39,20 @@
                     <form action="{{ url_for('enable_device', device_id=5) }}" method="POST">
                         <input class="on-button" type="submit" value="TURN ON">
                     </form>
+                </div>
+                    <img src="../static/wateringcan.png" width="100px" height="100px">
             </div>
             <div class="flexbox-item">
-                <h2>Brunnen</h2>
+                <div class="button-container">
+                <h2 style="margin-right: 60px;">Springbrunnen</h2>
                     <form action="{{ url_for('disable_device', device_id=4) }}" method="POST">
                         <input class="off-button" type="submit" value="TURN OFF">
                     </form>
                     <form action="{{ url_for('enable_device', device_id=4) }}" method="POST">
                         <input class="on-button" type="submit" value="TURN ON">
                     </form>
+                </div>
+                <img src="../static/well.png" width="100px" height="100px">
             </div>
         </div>
     </section>
@@ -35,11 +60,11 @@
         <div class="log-box">
         <table>
             <h3>Querylog</h3>
-            {% for row in data %}
+            {% for row in log_data %}
             <tr><td>{{ row[0] }}</td></tr>
             {% endfor %}
         </table>
-        <a class="download-btn" href="{{ url_for('download_query_log') }}" download="log.csv"><img>Download</a>
+        <a class="action-btn" href="{{ url_for('download_query_log') }}" download="log.csv"><img>Download <i class="fa fa-cloud-download"></i></a>
         </div>
     </section>
 </body>
